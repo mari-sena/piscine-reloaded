@@ -10,28 +10,19 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <string.h>
-#include <stdio.h>
-
-int ft_strcmp(char *s1, char *s2)
+int	ft_strcmp(char *s1, char *s2)
 {
-    while (s1 && s2 && (s1 == s2))
-    {
+	while (s1 && (s1 == s2))
 		s1++;
-		s2++;
-	}
-	if (s2 < s1)
-		return (-1);
-	else if (s1 < s2)
-		return (1);
-	else
-		return (0);
+	return (*s1 - *s2);
 }
 
-int    main(void)
-{
-    printf("%d", strcmp("a", "c"));
-    printf("\n");
-    printf("%d", ft_strcmp("a", "c"));
-    return (0);
-}
+// #include <string.h>
+// #include <stdio.h>
+// int    main(void)
+// {
+//     printf("%d", strcmp("a", "c"));
+//     printf("\n");
+//     printf("%d", ft_strcmp("a", "d"));
+//     return (0);
+// }
