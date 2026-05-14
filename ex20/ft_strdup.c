@@ -24,10 +24,13 @@ int	ft_strlen(char *str)
 
 char	*ft_strcpy(char *dest, char *src)
 {
+	char	*start;
+
+	start = dest;
 	while (*src)
 		*dest++ = *src++;
 	*dest = '\0';
-	return (dest);
+	return (start);
 }
 
 char	*ft_strdup(char *src)
@@ -39,3 +42,13 @@ char	*ft_strdup(char *src)
 		return (NULL);
 	return (ft_strcpy(dest, src));
 }
+
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	char	*dest;
+
+// 	dest = ft_strdup("teste");
+// 	printf("%s", dest);
+// 	return (0);
+// }

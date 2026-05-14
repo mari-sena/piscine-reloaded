@@ -10,13 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char str);
+void	ft_putchar(int n);
 
 void	ft_putstr(char *str)
 {
-	while (str)
+	while (*str)
 	{
-		ft_putchar(str);
+		ft_putchar(*str);
 		str++;
 	}
 }
+
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	ft_putstr("asdfasa");
+// 	return (0);
+// }

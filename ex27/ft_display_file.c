@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mariafer <mariafer@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/12 13:30:11 by mariafer          #+#    #+#             */
-/*   Updated: 2026/05/12 13:30:13 by mariafer         ###   ########.fr       */
+/*   Created: 2026/05/13 14:33:19 by mariafer          #+#    #+#             */
+/*   Updated: 2026/05/13 14:33:22 by mariafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(int nbr);
+#include <unistd.h>
+#include <fcntl.h>
 
-void	ft_putstr(char *str)
+void	ft_putchar(char c)
 {
-	while (*str)
-	{
-		ft_putchar(*str);
-		str++;
-	}
+	write(1, &c, 1);
 }
 
 int	main(int argc, char *argv[])
 {
-	int	i;
+	int		fd;
+	char	fc;
 
-	i = 1;
-	while (i < argc)
+	if (argc == 1)
+		write(2, "File name missing.\n", 19);
+	if (argc > 2)
+		write(2, "Too many arguments.\n", 20);
+	if (argc == 2)
 	{
-		ft_putstr(argv[i]);
-		ft_putchar('\n');
-		i++;
+		fd = open(argv[1], O_RDONLY);
+		while (read(fd, &fc, 1) > 0)
+			ft_putchar(fc);
+		close(fd);
+		return (0);
 	}
-	return (0);
+	return (1);
 }

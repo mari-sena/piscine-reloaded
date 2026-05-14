@@ -1,36 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_point.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mariafer <mariafer@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/12 13:30:11 by mariafer          #+#    #+#             */
-/*   Updated: 2026/05/12 13:30:13 by mariafer         ###   ########.fr       */
+/*   Created: 2026/05/13 13:12:18 by mariafer          #+#    #+#             */
+/*   Updated: 2026/05/13 13:12:19 by mariafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(int nbr);
+#ifndef FT_POINT_H
+# define FT_POINT_H
 
-void	ft_putstr(char *str)
+typedef struct s_point
 {
-	while (*str)
-	{
-		ft_putchar(*str);
-		str++;
-	}
-}
+	int	x;
+	int	y;
+}	t_point;
 
-int	main(int argc, char *argv[])
-{
-	int	i;
-
-	i = 1;
-	while (i < argc)
-	{
-		ft_putstr(argv[i]);
-		ft_putchar('\n');
-		i++;
-	}
-	return (0);
-}
+#endif

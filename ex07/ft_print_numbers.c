@@ -10,16 +10,22 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char str);
+void	ft_putchar(int n);
 
 void	ft_print_numbers(void)
 {
 	int	aux;
 
-	aux = 33;
-	while (aux < 127)
+	aux = '0';
+	while (aux <= '9')
 	{
 		ft_putchar(aux);
 		aux++;
 	}
 }
+
+// int	main(void)
+// {
+// 	ft_print_numbers();
+// 	return (0);
+// }

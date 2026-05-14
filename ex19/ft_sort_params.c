@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(char str);
+void	ft_putchar(int nbr);
 
 int	ft_strlen(char *str)
 {
@@ -24,8 +24,11 @@ int	ft_strlen(char *str)
 
 int	ft_strcmp(char *s1, char *s2)
 {
-	while (s1 && (s1 == s2))
+	while (*s1 && *s2 && *s1 == *s2)
+	{
 		s1++;
+		s2++;
+	}
 	return (*s1 - *s2);
 }
 
@@ -38,18 +41,27 @@ void	ft_sort_params(int argc, char *argv[])
 	i = 1;
 	while (i < argc - 1)
 	{
-		j = 1;
-		while (j < argc - i)
+		j = i + 1;
+		while (j < argc)
 		{
-			if (ft_strcmp(argv[j], argv[j + 1]) > 0)
+			if (ft_strcmp(argv[i], argv[j]) > 0)
 			{
-				swap = argv[j];
-				argv[j] = argv[j + 1];
-				argv[j + 1] = swap;
+				swap = argv[i];
+				argv[i] = argv[j];
+				argv[j] = swap;
 			}
 			j++;
 		}
 		i++;
+	}
+}
+
+void	ft_putstr(char *str)
+{
+	while (*str)
+	{
+		ft_putchar(*str);
+		str++;
 	}
 }
 
@@ -63,7 +75,7 @@ int	main(int argc, char *argv[])
 		i = 1;
 		while (i < argc)
 		{
-			ft_putchar(*argv[i]);
+			ft_putstr(argv[i]);
 			ft_putchar('\n');
 			i++;
 		}

@@ -17,10 +17,19 @@ int	ft_sqrt(int nb)
 
 	aux = 1;
 	mult = aux * aux;
-	while ((mult != nb) && (mult > nb))
+	while ((mult != nb) && (mult < nb))
+	{
 		aux++;
-	if (mult == nb)
-		return (aux);
-	else
-		return (0);
+		mult = aux * aux;
+		if (mult == nb)
+			return (aux);
+	}
+	return (0);
 }
+
+// #include <stdio.h>
+// int	main(void)
+// {
+// 	printf("%d", ft_sqrt(64));
+// 	return (0);
+// }

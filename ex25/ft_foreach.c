@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_params.c                                  :+:      :+:    :+:   */
+/*   ft_foreach.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mariafer <mariafer@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/05/12 13:30:11 by mariafer          #+#    #+#             */
-/*   Updated: 2026/05/12 13:30:13 by mariafer         ###   ########.fr       */
+/*   Created: 2026/05/13 13:42:12 by mariafer          #+#    #+#             */
+/*   Updated: 2026/05/13 13:42:14 by mariafer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_putchar(int nbr);
-
-void	ft_putstr(char *str)
-{
-	while (*str)
-	{
-		ft_putchar(*str);
-		str++;
-	}
-}
-
-int	main(int argc, char *argv[])
+void	ft_foreach(int *tab, int length, void (*f)(int))
 {
 	int	i;
 
-	i = 1;
-	while (i < argc)
+	i = 0;
+	while (i < length)
 	{
-		ft_putstr(argv[i]);
-		ft_putchar('\n');
+		f(*tab++);
 		i++;
 	}
-	return (0);
 }
+
+// int	main(void)
+// {
+// 	int	tab[] = {1, 2, 3, 4};
+
+// 	ft_foreach(tab, 4, &ft_putnbr);
+
+// 	return (0);
+// }
